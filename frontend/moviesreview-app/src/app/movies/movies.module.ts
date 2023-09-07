@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesFormComponent } from './movies-form/movies-form.component';
@@ -9,7 +10,8 @@ import { MoviesFormComponent } from './movies-form/movies-form.component';
   declarations: [MoviesFormComponent],
   imports: [
     CommonModule,
-    MoviesRoutingModule
+    MoviesRoutingModule,
+    FormsModule
   ], exports: [
   MoviesFormComponent
   ]
