@@ -3,7 +3,7 @@
     <li class="breadcrumb-item active">Cadastro</li>
 </ol>
 <div class="container">
-    <form>
+    <form #movieForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="col-md-6">
             <div class="form-group">
                 <label>ID:</label>
@@ -57,7 +57,7 @@
 
 <div class="row">
     <div class="col-md-2">
-        <button type="submit" class="btn btn-sucess" (click)="clicar()">
+        <button type="submit" class="btn btn-sucess">
             <i class="fa fa-save" ></i> Salvar
             </button>
     </div>

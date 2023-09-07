@@ -8,7 +8,6 @@ import { Movie } from '../movie'
 })
 export class MoviesFormComponent implements OnInit {
 
-
 movie: Movie;
 
   constructor() { 
@@ -18,7 +17,7 @@ movie: Movie;
   ngOnInit(): void {
   }
 
-clicar(){
+onSubmit(){
     console.log(this.movie);
 }
 
