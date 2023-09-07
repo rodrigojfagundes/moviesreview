@@ -3,7 +3,9 @@ package io.github.rodrigojfagundes.moviesreview.resources;
 import java.net.URI;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,12 +22,13 @@ import io.github.rodrigojfagundes.moviesreview.services.ReviewService;
 @RequestMapping(value = "/reviews")
 public class ReviewResource {
 	
+	@Autowired
 	private ReviewService service;
 	
 	@GetMapping
 	public ResponseEntity<List<ReviewDTO>> findAll(){
 		List<ReviewDTO> reviews = service.findAll();
-		return ResponseEntity.ok(reviews);
+		return ResponseEntity.ok().body(reviews);
 	}
 	
 	@PostMapping
@@ -35,12 +38,13 @@ public class ReviewResource {
 		return ResponseEntity.created(uri).body(dto);
 	}
 	
-	@PutMapping
+	@PutMapping(value = "/{id}")
 	public ResponseEntity<ReviewDTO> update (@PathVariable Long id, @RequestBody ReviewDTO dto) {
 		ReviewDTO newDTO = service.update(id, dto);
 		return ResponseEntity.ok().body(newDTO);
 	}
 	
+	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<ReviewDTO> delete (@PathVariable Long id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();

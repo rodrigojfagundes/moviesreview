@@ -54,7 +54,7 @@ public class MovieService {
 		return new MovieDTO(movie);
 	}
 	
-	
+	@Transactional
 	public MovieDTO update(Long id, MovieDTO dto) {
 		try {
 			Movie movie = repository.getOne(id);

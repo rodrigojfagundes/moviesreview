@@ -35,6 +35,7 @@ public class MovieDTO implements Serializable {
 		id = entity.getId();
 		title = entity.getTitle();
 		subTitle = entity.getSubTitle();
+		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 		synopsis = entity.getSynopsis();
 		entity.getReviews().forEach(review -> this.reviews.add(new ReviewDTO(review)));

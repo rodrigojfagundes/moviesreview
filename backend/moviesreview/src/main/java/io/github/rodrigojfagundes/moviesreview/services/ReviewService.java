@@ -29,7 +29,7 @@ public class ReviewService {
 	@Autowired
 	private MovieRepository movieRepository;
 	
-	@Transactional
+	@Transactional(readOnly = true)
 	public List<ReviewDTO> findAll() {
 		List<Review> reviews = repository.findAll();
 		return reviews.stream().map(review -> new ReviewDTO(review)).collect(Collectors.toList());
