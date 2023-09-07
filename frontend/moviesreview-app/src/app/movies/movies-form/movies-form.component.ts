@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../movie'
 
 @Component({
   selector: 'app-movies-form',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movies-form.component.css']
 })
 export class MoviesFormComponent implements OnInit {
+
+
+movie: Movie;
 
   constructor() { }
 
