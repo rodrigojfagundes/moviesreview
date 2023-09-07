@@ -18,7 +18,6 @@ public class UserInsertValidator implements ConstraintValidator<UserInsertValid,
 	@Autowired
 	private UserRepository repository;
 	
-
 	public void initialize(UserInsertValid ann) {
 		
 	}
@@ -35,8 +34,7 @@ public class UserInsertValidator implements ConstraintValidator<UserInsertValid,
 		if (user != null) {
 			list.add(new FieldMessage("email", "Email ja existe"));
 		}
-		//pecorre a lista de FIELDMESSAGE para inserir os erros na
-		//lista de BEANS VALIDATION
+
 		for (FieldMessage e : list) {
 			context.disableDefaultConstraintViolation();
 			context.buildConstraintViolationWithTemplate(e.getMessage()).addPropertyNode(e.getFieldName()).addConstraintViolation();
