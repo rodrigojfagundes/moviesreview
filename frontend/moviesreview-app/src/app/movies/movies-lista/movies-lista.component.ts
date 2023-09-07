@@ -39,8 +39,9 @@ movie.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(movie.imgUrl);
 })
 }
 
+
 novoCadastro (){
-this.router.navigate(['/movies-form'])
+this.router.navigate(['/movies/form'])
 }
 
 preparaDelecao(movie: Movie) {

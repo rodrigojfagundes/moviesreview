@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  apiUrlBase: 'http://localhost:8080'
+  apiUrlBase: 'http://localhost:8080',
+
+  clientId: 'moviesreview',
+  clientSecret: 'moviesreview123',
+  obterTokenUrl: '/oauth/token'
 };
 
 /*

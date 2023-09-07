@@ -51,7 +51,7 @@ MOVIES-LISTA.COMPONENT.HTML
                     <td>{{ movie.synopsis }}</td>
                     <td>
                         <button class="btn btn-primary"
-                            routerLink="/movies-form/{{movie.id}}">
+                            routerLink="/movies/form/{{movie.id}}">
                             <i class="fa fa-edit"></i>
                         </button>
                         <button class="btn btn-danger" (click)="preparaDelecao(movie)"
@@ -64,7 +64,6 @@ MOVIES-LISTA.COMPONENT.HTML
             </table>
         </div>
     </div>
-
 <div id="modalDelecao" class="modal" fade role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
