@@ -2,37 +2,34 @@ package io.github.rodrigojfagundes.moviesreview.dto;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-
 import io.github.rodrigojfagundes.moviesreview.entities.Review;
 
 public class ReviewDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	@NotBlank(message = "Text cannot be empty")
-	@NotEmpty
+	
 	private Long id;
 	private String text;
 	private Long movieId;
-	
-	private UserDTO user;
+	private String movieTitle;
 	
 	public ReviewDTO() {}
 
-	public ReviewDTO(Long id, String text, UserDTO user, Long movieId) {
+	public ReviewDTO(Long id, String text, Long movieId, String movieTitle) {
 		this.id = id;
 		this.text = text;
-		this.user = user;
 		this.movieId = movieId;
+		this.movieTitle = movieTitle;
 	}
 	
+	//metodo para transformar um ENTITY/CLASS do tipo REVIEW em
+	// REVIEWDTO
 	public ReviewDTO(Review entity) {
 		id = entity.getId();
 		text = entity.getText();
-		user = new UserDTO(entity.getUser());
 		movieId = entity.getMovie().getId();
+		movieTitle = entity.getMovie().getTitle();
 	}
 
 	public Long getId() {
@@ -50,14 +47,6 @@ public class ReviewDTO implements Serializable{
 	public void setText(String text) {
 		this.text = text;
 	}
-	
-	public UserDTO getUser() {
-		return user;
-	}
-
-	public void setUser(UserDTO user) {
-		this.user = user;
-	}
 
 	public Long getMovieId() {
 		return movieId;
@@ -66,6 +55,15 @@ public class ReviewDTO implements Serializable{
 	public void setMovieId(Long movieId) {
 		this.movieId = movieId;
 	}
+
+	public String getMovieTitle() {
+		return movieTitle;
+	}
+
+	public void setMovieTitle(String movieTitle) {
+		this.movieTitle = movieTitle;
+	}
+	
 	
 	
 	
