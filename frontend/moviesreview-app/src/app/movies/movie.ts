@@ -5,7 +5,6 @@ export class Movie {
     title: string;
     subTitle: string;
     year: number;
-    imgUrl: string;
     synopsis: string;
     urlSafe: SafeResourceUrl;
 }

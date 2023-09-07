@@ -13,7 +13,7 @@ import { Role } from "../role/role";
 export class LoginComponent {
 
 name: string;
-email: string;
+username: string;
 password: string;
 cadastrando: boolean;
 mensagemSucesso: string;
@@ -28,7 +28,7 @@ private authService: AuthService
 
 onSubmit(){
 this.authService
-    .tentarLogar( this.email, this.password)
+    .tentarLogar( this.username, this.password)
     .subscribe(response => {
     const access_token = JSON.stringify(response);
     localStorage.setItem('access_token', access_token)
@@ -50,7 +50,7 @@ this.cadastrando = false;
 cadastrar(){
 const usuario: Usuario = new Usuario();
 usuario.name = this.name;
-usuario.email = this.email;
+usuario.username = this.username;
 usuario.password = this.password;
 usuario.roles = [{id: 2}];
 
@@ -60,7 +60,7 @@ this.authService
 this.mensagemSucesso = "Cadastro realizado com sucesso! Efetue o login.";
 this.cadastrando = false;
 this.name = '';
-this.email = '';
+this.username = '';
 this.password = '';
 this.roles = [];
 this.errors = [];

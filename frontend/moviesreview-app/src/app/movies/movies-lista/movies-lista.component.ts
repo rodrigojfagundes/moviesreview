@@ -33,9 +33,6 @@ ngOnInit(): void {
 getMovies(){
 this.service.getMovies().subscribe(data => {
 this.movies = data.content;
-this.movies.forEach(movie => {
-movie.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(movie.imgUrl);
-})
 })
 }
 

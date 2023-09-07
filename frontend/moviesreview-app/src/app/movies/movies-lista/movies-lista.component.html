@@ -36,7 +36,6 @@ MOVIES-LISTA.COMPONENT.HTML
                 <th>Title</th>
                 <th>SubTitle</th>
                 <th>Year</th>
-                <th>ImgUrl</th>
                 <th>Synopsis</th>
                 <th></th>
                 </tr>
@@ -47,8 +46,8 @@ MOVIES-LISTA.COMPONENT.HTML
                     <td>{{ movie.title }}</td>
                     <td>{{ movie.subTitle }}</td>
                     <td>{{ movie.year }}</td>
-                    <td>{{ movie.imgUrl }}</td>
                     <td>{{ movie.synopsis }}</td>
+
                     <td>
                         <button class="btn btn-primary"
                             routerLink="/movies/form/{{movie.id}}">
@@ -64,6 +63,7 @@ MOVIES-LISTA.COMPONENT.HTML
             </table>
         </div>
     </div>
+
 <div id="modalDelecao" class="modal" fade role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -73,6 +73,7 @@ MOVIES-LISTA.COMPONENT.HTML
             <div class="modal-body" *ngIf="movieSelecionado">
                 Confirmar a delecao do Movie {{ movieSelecionado }}?
             </div>
+
             <div class="modal-footer">
                 <button class="btn btn-success" (click)="deletarMovie()"
                     data-dismiss="modal">Confirmar</button>

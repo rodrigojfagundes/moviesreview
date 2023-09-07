@@ -38,7 +38,7 @@ id: number;
   }
 
 voltarParaListagem() {
-this.router.navigate(['/movies-lista'])
+this.router.navigate(['/movies/lista'])
 }
 
 onSubmit(){
