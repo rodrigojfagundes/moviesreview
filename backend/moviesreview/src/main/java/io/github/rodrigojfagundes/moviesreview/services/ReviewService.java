@@ -9,14 +9,18 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.github.rodrigojfagundes.moviesreview.dto.ReviewDTO;
 import io.github.rodrigojfagundes.moviesreview.entities.Movie;
 import io.github.rodrigojfagundes.moviesreview.entities.Review;
+import io.github.rodrigojfagundes.moviesreview.entities.User;
 import io.github.rodrigojfagundes.moviesreview.repositories.MovieRepository;
 import io.github.rodrigojfagundes.moviesreview.repositories.ReviewRepository;
+import io.github.rodrigojfagundes.moviesreview.repositories.UserRepository;
 import io.github.rodrigojfagundes.moviesreview.services.exceptions.DatabaseException;
 import io.github.rodrigojfagundes.moviesreview.services.exceptions.ResourceNotFoundException;
 
@@ -28,6 +32,9 @@ public class ReviewService {
 	
 	@Autowired
 	private MovieRepository movieRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Transactional(readOnly = true)
 	public List<ReviewDTO> findAll() {
@@ -44,10 +51,17 @@ public class ReviewService {
 	
 	@Transactional
 	public ReviewDTO insert(ReviewDTO dto) {
-		Review review = new Review();
+	Review review = new Review();
+		
+	Authentication authentication = SecurityContextHolder.getContext()
+			.getAuthentication();
+	
+	User userAuthenticated = userRepository
+			.findByEmail(authentication.getName());
 		
 	Movie movie = movieRepository.getOne(dto.getMovieId());	
 	
+	review.setUser(userAuthenticated);
 	review.setMovie(movie);
 	review.setText(dto.getText());
 	
@@ -61,8 +75,14 @@ public class ReviewService {
 		try {
 			Review review = new Review();
 			
+			Authentication authentication = SecurityContextHolder
+					.getContext().getAuthentication();
+			
+			User userAuthenticated = userRepository.findByEmail(authentication.getName());
+			
 			Movie movie = movieRepository.getOne(dto.getMovieId());
 			
+			review.setUser(userAuthenticated);
 			review.setMovie(movie);
 			review.setText(dto.getText());
 			

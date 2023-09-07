@@ -18,6 +18,7 @@ public class UserInsertValidator implements ConstraintValidator<UserInsertValid,
 	@Autowired
 	private UserRepository repository;
 	
+	
 	public void initialize(UserInsertValid ann) {
 		
 	}

@@ -2,7 +2,6 @@ package io.github.rodrigojfagundes.moviesreview.config;
 
 import java.util.Arrays;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -20,13 +19,13 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-@SuppressWarnings("deprecation")
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	
 	@Autowired
 	private Environment env;
+	
 	
 	@Autowired
 	private JwtTokenStore tokenStore;
@@ -80,7 +79,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		return source;
 	}
 	
-	
+	@Bean
 	public FilterRegistrationBean<CorsFilter> corsFilter() {
 		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(corsConfigurationSource()));
 		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);

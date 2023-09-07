@@ -18,7 +18,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 import io.github.rodrigojfagundes.moviesreview.components.JwtTokenEnhancer;
 
-@SuppressWarnings("deprecation")
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
@@ -29,7 +28,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Value("${security.oauth2.client.client-secret}")
 	private String clientSecret;
 	
-	@Value("{jwt.duration}")
+	@Value("${jwt.duration}")
 	private Integer jwtDuration;
 	
 	@Autowired
@@ -62,7 +61,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		.accessTokenValiditySeconds(jwtDuration);
 	}
 	
-	public void configur(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+	@Override
+	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 		
 		TokenEnhancerChain chain = new TokenEnhancerChain();
 		chain.setTokenEnhancers(Arrays.asList(accessTokenConverter, tokenEnhancer));

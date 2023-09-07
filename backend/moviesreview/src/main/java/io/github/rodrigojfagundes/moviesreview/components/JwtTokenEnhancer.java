@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 import io.github.rodrigojfagundes.moviesreview.entities.User;
 import io.github.rodrigojfagundes.moviesreview.repositories.UserRepository;
 
-@SuppressWarnings("deprecation")
 @Component
 public class JwtTokenEnhancer implements TokenEnhancer{
 	
@@ -22,7 +21,8 @@ public class JwtTokenEnhancer implements TokenEnhancer{
 	
 	@Override
 	public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
-
+		//o authentication.getname retorna o nome do usuario, q no caso
+		//e o email
 		User user = userRepository.findByEmail(authentication.getName());
 		
 		Map<String, Object> map = new HashMap<>();
