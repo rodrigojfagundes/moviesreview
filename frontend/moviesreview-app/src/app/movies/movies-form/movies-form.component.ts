@@ -10,19 +10,16 @@ export class MoviesFormComponent implements OnInit {
 
 
 movie: Movie;
-title: string = 'batman';
 
   constructor() { 
   this.movie = new Movie();
-  this.movie.title = 'koringa';
-
   }
 
   ngOnInit(): void {
   }
 
 clicar(){
-    console.log('Cliquei');
+    console.log(this.movie);
 }
 
 }

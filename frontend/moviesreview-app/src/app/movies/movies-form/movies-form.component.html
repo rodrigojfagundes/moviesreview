@@ -3,33 +3,37 @@
     <li class="breadcrumb-item active">Cadastro</li>
 </ol>
 <div class="container">
-{{ movie.title }}
     <form>
         <div class="col-md-6">
             <div class="form-group">
                 <label>ID:</label>
-                <input type="text" class="form-control" disabled="true"/>
+                <input type="text" 
+                [ngModel]="movie.id" name="id" 
+                class="form-control" disabled="true"/>
             </div>
         </div>
 
         <div class="col-md-6">
         <div class="form-group">
         <label>Title:</label>
-        <input type="text" class="form-control" [ngModel]="title"/>
+        <input type="text" class="form-control" 
+                [(ngModel)]="movie.title" name="title"/>
         </div>
         </div>
     
         <div class="col-md-6">
         <div class="form-group">
         <label>SubTitle:</label>
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" name="subTitle"
+                [(ngModel)]="movie.subTitle" />
         </div>
         </div>
     
         <div class="col-md-6">
             <div class="form-group">
                 <label>Year:</label>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" name="year"
+                    [(ngModel)]="movie.year"/>
             </div>
         </div>
 
@@ -38,14 +42,16 @@
         <div class="col-md-6">
         <div class="form-group">
         <label>ImgUrl:</label>
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" name="imgUrl"
+                [(ngModel)]="movie.imgUrl"/>
         </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-group">
                 <label>Synopsis:</label>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" name="synopsis"
+                        [(ngModel)]="movie.synopsis"/>
             </div>
         </div>
 
