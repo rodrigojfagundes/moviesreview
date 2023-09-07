@@ -23,8 +23,6 @@ public class ReviewDTO implements Serializable{
 		this.movieTitle = movieTitle;
 	}
 	
-	//metodo para transformar um ENTITY/CLASS do tipo REVIEW em
-	// REVIEWDTO
 	public ReviewDTO(Review entity) {
 		id = entity.getId();
 		text = entity.getText();

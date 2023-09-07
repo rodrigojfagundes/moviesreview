@@ -12,11 +12,12 @@ public class AppConfig {
 	
 	@Value("${jwt.secret}")
 	private String jwtSecret;
-	
+
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
 	
 	@Bean
 	public JwtAccessTokenConverter accessTokenConverter () {

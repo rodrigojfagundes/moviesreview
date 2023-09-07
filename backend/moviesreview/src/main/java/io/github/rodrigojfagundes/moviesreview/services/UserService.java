@@ -28,8 +28,6 @@ import io.github.rodrigojfagundes.moviesreview.repositories.UserRepository;
 import io.github.rodrigojfagundes.moviesreview.services.exceptions.DatabaseException;
 import io.github.rodrigojfagundes.moviesreview.services.exceptions.ResourceNotFoundException;
 
-
-
 @Service
 public class UserService implements UserDetailsService {
 	

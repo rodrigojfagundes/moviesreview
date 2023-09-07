@@ -13,6 +13,7 @@ import io.github.rodrigojfagundes.moviesreview.entities.User;
 import io.github.rodrigojfagundes.moviesreview.repositories.UserRepository;
 import io.github.rodrigojfagundes.moviesreview.resources.exceptions.FieldMessage;
 
+
 public class UserInsertValidator implements ConstraintValidator<UserInsertValid, UserInsertDTO> {
 	
 	@Autowired

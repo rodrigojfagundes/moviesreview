@@ -21,8 +21,10 @@ public class JwtTokenEnhancer implements TokenEnhancer{
 	
 	@Override
 	public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
+		
 		//o authentication.getname retorna o nome do usuario, q no caso
-		//e o email
+		//dai dessa forma nos vamos carregar as INFO desse USUARIO(username)
+		//para dentro da VAR/OBJ de nome USER
 		User user = userRepository.findByUsername(authentication.getName());
 		
 		Map<String, Object> map = new HashMap<>();

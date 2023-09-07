@@ -16,10 +16,9 @@ import io.github.rodrigojfagundes.moviesreview.entities.User;
 import io.github.rodrigojfagundes.moviesreview.repositories.UserRepository;
 import io.github.rodrigojfagundes.moviesreview.resources.exceptions.FieldMessage;
 
+
 public class UserUpdateValidator implements ConstraintValidator<UserUpdateValid, UserUpdateDTO> {
-	
-	//HTTPSERVLETREQUEST guarda as informacoes da requesicao
-	//a partir dele e possivel pegar o id da requisicao
+
 	@Autowired
 	private HttpServletRequest request;
 	

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import io.github.rodrigojfagundes.moviesreview.services.exceptions.ResourceNotFoundException;
 
+
 @ControllerAdvice
 public class ResourceExceptionHandler {
 	
