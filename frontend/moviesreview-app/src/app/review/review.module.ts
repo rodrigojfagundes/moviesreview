@@ -8,19 +8,19 @@ import { RouterModule } from '@angular/router';
 
 
 
-@NgModule ({
-declarations: [
-ReviewFormComponent,
-ReviewListaComponent
-],
-imports: [
-CommonModule,
-ReviewRoutingModule,
-FormsModule,
-RouterModule
-], exports: [
-ReviewFormComponent,
-ReviewListaComponent
-]
+@NgModule({
+    declarations: [
+        ReviewFormComponent,
+        ReviewListaComponent
+    ],
+    imports: [
+        CommonModule,
+        ReviewRoutingModule,
+        FormsModule,
+        RouterModule
+    ], exports: [
+        ReviewFormComponent,
+        ReviewListaComponent
+    ]
 })
-export class ReviewModule {}
+export class ReviewModule { }

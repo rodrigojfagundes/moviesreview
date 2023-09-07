@@ -11,22 +11,22 @@ import { ResponsePageable } from "./movies/responsePageable.model";
 })
 export class ReviewService {
 
-apiURL: string = environment.apiUrlBase + "/reviews";
+    apiURL: string = environment.apiUrlBase + "/reviews";
 
-constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
 
-salvar(review: Review) : Observable<Review> {
-    return this.http.post<Review>(this.apiURL, review);
-}
+    salvar(review: Review): Observable<Review> {
+        return this.http.post<Review>(this.apiURL, review);
+    }
 
-buscar () : Observable <Review[]> {
+    buscar(): Observable<Review[]> {
 
-const httpParams = new HttpParams();
+        const httpParams = new HttpParams();
 
-const url = this.apiURL;
-//    console.log(url);
-    return this.http.get<Review[]>('http://localhost:8080/reviews');
-}
+        const url = this.apiURL;
+        //    console.log(url);
+        return this.http.get<Review[]>('http://localhost:8080/reviews');
+    }
 
 }

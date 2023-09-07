@@ -7,14 +7,14 @@ import { MoviesFormComponent } from './movies-form/movies-form.component';
 import { MoviesListaComponent } from './movies-lista/movies-lista.component';
 
 @NgModule({
-  declarations: [MoviesFormComponent, MoviesListaComponent],
-  imports: [
-    CommonModule,
-    MoviesRoutingModule,
-    FormsModule
-  ], exports: [
-  MoviesFormComponent,
-  MoviesListaComponent
-  ]
+    declarations: [MoviesFormComponent, MoviesListaComponent],
+    imports: [
+        CommonModule,
+        MoviesRoutingModule,
+        FormsModule
+    ], exports: [
+        MoviesFormComponent,
+        MoviesListaComponent
+    ]
 })
 export class MoviesModule { }

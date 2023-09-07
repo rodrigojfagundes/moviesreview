@@ -6,17 +6,17 @@ import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [
-    NavbarComponent,
-    SidebarComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  exports: [
-    NavbarComponent,
-    SidebarComponent
-  ]
+    declarations: [
+        NavbarComponent,
+        SidebarComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule
+    ],
+    exports: [
+        NavbarComponent,
+        SidebarComponent
+    ]
 })
 export class TemplateModule { }

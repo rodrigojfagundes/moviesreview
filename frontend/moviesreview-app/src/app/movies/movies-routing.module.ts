@@ -7,19 +7,21 @@ import { AuthGuard } from '../auth.guard';
 
 const routes: Routes = [
 
-{path: 'movies', component: LayoutComponent, 
-canActivate: [AuthGuard], children: [
-{ path: 'form', component: MoviesFormComponent},
-{ path: 'form/:id', component: MoviesFormComponent },
-{ path: 'lista/:id', component: MoviesListaComponent },
-{ path: 'lista', component: MoviesListaComponent },
-{ path: '', redirectTo : '/movies/lista', pathMatch: 'full' }
-]},
+    {
+        path: 'movies', component: LayoutComponent,
+        canActivate: [AuthGuard], children: [
+            { path: 'form', component: MoviesFormComponent },
+            { path: 'form/:id', component: MoviesFormComponent },
+            { path: 'lista/:id', component: MoviesListaComponent },
+            { path: 'lista', component: MoviesListaComponent },
+            { path: '', redirectTo: '/movies/lista', pathMatch: 'full' }
+        ]
+    },
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
 export class MoviesRoutingModule { }

@@ -4,82 +4,74 @@
 </ol>
 <div class="container">
     <form #movieForm="ngForm" (ngSubmit)="onSubmit()">
-
-    <div class="row">
-    <div class="col-md-12">
-        <div class="alert alert-success" role="alert" *ngIf="success == true">
-        Movie salvo/atualizado com sucesso
-            </div>
-        <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
-        {{ erro }}
-            </div>    
-        </div>
-    </div>
-
-        <div class = "row" *ngIf="movie.id">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>ID:</label>
-                <input type="text" 
-                [ngModel]="movie.id" name="id" 
-                class="form-control" disabled="true"/>
-            </div>
-        </div>
-    </div>
-
-        <div class = "row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>Title:</label>
-                <input type="text" class="form-control" 
-                 name="title" [(ngModel)]="movie.title"/>
-            </div>
-        </div>
-    </div>
-
-        <div class = "row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>SubTitle:</label>
-                    <input type="text" class="form-control" 
-                    [(ngModel)]="movie.subTitle" name="subTitle"/>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="success == true">
+                    Movie salvo/atualizado com sucesso
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+                    {{ erro }}
                 </div>
             </div>
         </div>
-    
+
+        <div class="row" *ngIf="movie.id">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>ID:</label>
+                    <input type="text" [ngModel]="movie.id" name="id" class="form-control" disabled="true" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Title:</label>
+                    <input type="text" class="form-control" name="title" [(ngModel)]="movie.title" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>SubTitle:</label>
+                    <input type="text" class="form-control" [(ngModel)]="movie.subTitle" name="subTitle" />
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Year:</label>
-                    <input type="text" class="form-control" 
-                    [(ngModel)]="movie.year" name="year"/>
+                    <input type="text" class="form-control" [(ngModel)]="movie.year" name="year" />
                 </div>
             </div>
         </div>
-    
-            <div class="row">
+
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Synopsis:</label>
-                    <input type="text" class="form-control" 
-                    [(ngModel)]="movie.synopsis" name="synopsis"/>
+                    <input type="text" class="form-control" [(ngModel)]="movie.synopsis" name="synopsis" />
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-sucess" *ngIf="!movie.id">
+                    <i class="fa fa-save"></i> Salvar
+                </button>
+                <button type="submit" class="btn btn-primary" *ngIf="movie.id">
+                    <i class="fa fa-sync-alt"></i> Atualizar
+                </button>
 
-<div class="row">
-    <div class="col-md-3">
-        <button type="submit" class="btn btn-sucess" *ngIf="!movie.id">
-            <i class="fa fa-save" ></i> Salvar
-        </button>
-        <button type="submit" class="btn btn-primary" *ngIf="movie.id">
-            <i class="fa fa-sync-alt" ></i> Atualizar
-        </button>
-
-        <button type="button" class="btn btn-danger ml-1" (click) = "voltarParaListagem()">
-            <i class="fa fa-arrow-alt-circle-left"></i> Voltar
-        </button>
-    </div>
-</div>
-</form>
+                <button type="button" class="btn btn-danger ml-1" (click)="voltarParaListagem()">
+                    <i class="fa fa-arrow-alt-circle-left"></i> Voltar
+                </button>
+            </div>
+        </div>
+    </form>
 </div>

@@ -19,31 +19,31 @@ import { TokenInterceptor } from './token.interceptor';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    LayoutComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    TemplateModule,
-    MoviesModule,
-    ReviewModule
-  ],
-  providers: [
-  MoviesService,
-  ReviewService,
-  AuthService,
-  {
-  provide: HTTP_INTERCEPTORS,
-  useClass: TokenInterceptor,
-  multi: true
-  }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        LoginComponent,
+        LayoutComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        TemplateModule,
+        MoviesModule,
+        ReviewModule
+    ],
+    providers: [
+        MoviesService,
+        ReviewService,
+        AuthService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true
+        }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
