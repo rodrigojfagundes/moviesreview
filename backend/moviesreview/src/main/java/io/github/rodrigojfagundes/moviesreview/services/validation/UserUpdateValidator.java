@@ -25,7 +25,7 @@ public class UserUpdateValidator implements ConstraintValidator<UserUpdateValid,
 	
 	@Autowired
 	private UserRepository repository;
-	
+
 	@Override
 	public void initialize(UserUpdateValid ann) {
 		
