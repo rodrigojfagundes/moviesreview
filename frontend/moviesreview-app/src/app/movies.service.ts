@@ -1,16 +1,21 @@
 //classe de SERVICOS de MOVIE... Ela basicamente pega as solicitacoes
 //e envia para o BACKEND (JAVA+SPRING)
-
-
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Movie } from './movies/movie';
 import { Observable } from 'rxjs';
+import { ResponsePageable } from '../app/movies/responsePageable.model';
 
 @Injectable ({
     providedIn: 'root'
 })
 export class MoviesService {
+
+    httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+      };
 
     constructor(private http: HttpClient) {}
 
@@ -24,12 +29,14 @@ export class MoviesService {
     }
 
 
-    getMovie() : Observable<Movie[]> {
-        return this.http.get<Movie[]>('http://localhost:8080/movies');
+    getMovies() : Observable<ResponsePageable> {
+        return this.http.get<ResponsePageable>('http://localhost:8080/movies');
     }
 
-    getMovieById(id : number) : Observable<Movie> {
-    return this.http.get<any> (`http://localhost:8080/movies/${id}`);
+
+
+    getMovieById(id : number) : Observable<any> {
+    return this.http.get<Movie> (`http://localhost:8080/movies/${id}`);
 }
 
 
