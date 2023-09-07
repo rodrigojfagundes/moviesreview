@@ -1,5 +1,3 @@
-//classe de SERVICOS de MOVIE... Ela basicamente pega as solicitacoes
-//e envia para o BACKEND (JAVA+SPRING)
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Movie } from './movies/movie';

@@ -9,6 +9,9 @@ import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component'
 import { MoviesModule } from './movies/movies.module';
 import { MoviesService } from './movies.service';
+import { ReviewModule } from './review/review.module';
+import { ReviewService } from './review.service';
+
 
 @NgModule({
   declarations: [
@@ -20,10 +23,12 @@ import { MoviesService } from './movies.service';
     HttpClientModule,
     AppRoutingModule,
     TemplateModule,
-    MoviesModule
+    MoviesModule,
+    ReviewModule
   ],
   providers: [
-  MoviesService
+  MoviesService,
+  ReviewService
   ],
   bootstrap: [AppComponent]
 })

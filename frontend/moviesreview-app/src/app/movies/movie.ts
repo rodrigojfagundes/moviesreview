@@ -1,7 +1,7 @@
 import { SafeResourceUrl } from '@angular/platform-browser';
 
 export class Movie {
-    id: number
+    id: number;
     title: string;
     subTitle: string;
     year: number;

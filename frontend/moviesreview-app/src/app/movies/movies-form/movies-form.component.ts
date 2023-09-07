@@ -52,7 +52,6 @@ this.errors = null;
 
 errorResponse => {this.errors = ['Erro ao atualizar o movie']
 })
-
 } else {
 this.service.salvar(this.movie)
 .subscribe(response => {
