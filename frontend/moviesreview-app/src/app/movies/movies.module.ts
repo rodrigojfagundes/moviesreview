@@ -10,6 +10,8 @@ import { MoviesFormComponent } from './movies-form/movies-form.component';
   imports: [
     CommonModule,
     MoviesRoutingModule
+  ], exports: [
+  MoviesFormComponent
   ]
 })
 export class MoviesModule { }
