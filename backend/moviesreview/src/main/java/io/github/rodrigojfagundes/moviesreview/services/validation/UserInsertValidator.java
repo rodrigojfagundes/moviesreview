@@ -39,7 +39,7 @@ public class UserInsertValidator implements ConstraintValidator<UserInsertValid,
 		//lista de BEANS VALIDATION
 		for (FieldMessage e : list) {
 			context.disableDefaultConstraintViolation();
-			context.buildConstraintViolationWithTemplate(e.getFieldName()).addPropertyNode(e.getFieldName()).addConstraintViolation();
+			context.buildConstraintViolationWithTemplate(e.getMessage()).addPropertyNode(e.getFieldName()).addConstraintViolation();
 		}
 		return list.isEmpty();
 	}
