@@ -57,7 +57,7 @@ public class ReviewService {
 			.getAuthentication();
 	
 	User userAuthenticated = userRepository
-			.findByEmail(authentication.getName());
+			.findByUsername(authentication.getName());
 		
 	Movie movie = movieRepository.getOne(dto.getMovieId());	
 	
@@ -78,7 +78,7 @@ public class ReviewService {
 			Authentication authentication = SecurityContextHolder
 					.getContext().getAuthentication();
 			
-			User userAuthenticated = userRepository.findByEmail(authentication.getName());
+			User userAuthenticated = userRepository.findByUsername(authentication.getName());
 			
 			Movie movie = movieRepository.getOne(dto.getMovieId());
 			

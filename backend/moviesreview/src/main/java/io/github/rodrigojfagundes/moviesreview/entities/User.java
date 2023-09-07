@@ -37,7 +37,7 @@ public class User implements UserDetails, Serializable {
 	private String name;
 	
 	@Column(unique = true)
-	private String email;
+	private String username;
 	private String password;
 	
 	
@@ -59,10 +59,10 @@ public class User implements UserDetails, Serializable {
 	
 	
 	
-	public User(Long id, String name, String email, String password) {
+	public User(Long id, String name, String username, String password) {
 		this.id = id;
 		this.name = name;
-		this.email = email;
+		this.username = username;
 		this.password = password;
 	}
 	
@@ -92,15 +92,9 @@ public class User implements UserDetails, Serializable {
 	}
 
 
-
-	public String getEmail() {
-		return email;
-	}
-
-
-
-	public void setEmail(String email) {
-		this.email = email;
+	
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 
@@ -168,7 +162,7 @@ public class User implements UserDetails, Serializable {
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return email;
+		return username;
 	}
 
 	@Override

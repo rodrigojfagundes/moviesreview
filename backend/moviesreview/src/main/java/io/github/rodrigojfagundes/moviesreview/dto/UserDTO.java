@@ -3,8 +3,6 @@ package io.github.rodrigojfagundes.moviesreview.dto;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import io.github.rodrigojfagundes.moviesreview.entities.User;
@@ -17,9 +15,7 @@ public class UserDTO implements Serializable{
 	
 	@NotBlank(message = "Campo obrigatorio")
 	private String name;
-	
-	@Email(message = "Favor digitar um email valido")
-	private String email;
+	private String username;
 	
 	Set<RoleDTO> roles = new HashSet<>();
 	
@@ -27,17 +23,17 @@ public class UserDTO implements Serializable{
 	public UserDTO() {}
 
 	
-	public UserDTO(Long id, String name, String email) {
+	public UserDTO(Long id, String name, String username) {
 		this.id = id;
 		this.name = name;
-		this.email = email;
+		this.username = username;
 	}
 	
 	
 	public UserDTO(User entity) {
 		id = entity.getId();
 		name = entity.getName();
-		email = entity.getEmail();
+		username = entity.getUsername();
 		entity.getRoles().forEach(role -> this.roles.add(new RoleDTO(role)));
 	}
 
@@ -62,13 +58,13 @@ public class UserDTO implements Serializable{
 	}
 
 
-	public String getEmail() {
-		return email;
+	public String getUsername() {
+		return username;
 	}
 
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsername(String email) {
+		this.username = email;
 	}
 
 

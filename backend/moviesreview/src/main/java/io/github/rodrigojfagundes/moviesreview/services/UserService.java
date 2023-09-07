@@ -98,7 +98,7 @@ public class UserService implements UserDetailsService {
 	
 	public void copyDtoToEntity(UserDTO dto, User entity) {
 		entity.setName(dto.getName());
-		entity.setEmail(dto.getEmail());
+		entity.setUsername(dto.getUsername());
 		
 		entity.getRoles().clear();
 		for(RoleDTO roleDTO : dto.getRoles()) {
@@ -111,10 +111,10 @@ public class UserService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		User user = repository.findByEmail(username);
+		User user = repository.findByUsername(username);
 		if (user == null) {
 			logger.error("User not found: " + username);
-			throw new UsernameNotFoundException("Email not found");
+			throw new UsernameNotFoundException("Username not found");
 		}
 		logger.info("User found: " + username);
 		return user;

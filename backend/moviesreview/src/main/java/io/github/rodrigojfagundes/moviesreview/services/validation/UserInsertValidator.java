@@ -18,7 +18,6 @@ public class UserInsertValidator implements ConstraintValidator<UserInsertValid,
 	@Autowired
 	private UserRepository repository;
 	
-
 	public void initialize(UserInsertValid ann) {
 		
 	}
@@ -31,11 +30,10 @@ public class UserInsertValidator implements ConstraintValidator<UserInsertValid,
 		
 		//coloque aqui seus testes de validacao, acresentando o
 		//FIELDMESSAGE a lista
-		User user = repository.findByEmail(dto.getEmail());
+		User user = repository.findByUsername(dto.getUsername());
 		if (user != null) {
 			list.add(new FieldMessage("email", "Email ja existe"));
 		}
-
 		for (FieldMessage e : list) {
 			context.disableDefaultConstraintViolation();
 			context.buildConstraintViolationWithTemplate(e.getMessage()).addPropertyNode(e.getFieldName()).addConstraintViolation();

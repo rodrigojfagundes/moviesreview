@@ -83,7 +83,6 @@ public class MovieService {
 		entity.setTitle(dto.getTitle());
 		entity.setSubTitle(dto.getSubTitle());
 		entity.setYear(dto.getYear());
-		entity.setImgUrl(dto.getImgUrl());
 		entity.setSynopsis(dto.getSynopsis());
 		
 		for (ReviewDTO reviewDTO : dto.getReviews()) {
