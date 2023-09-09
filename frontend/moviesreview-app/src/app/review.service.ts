@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Review } from "./review/review";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { ReviewBusca } from './review/review-lista/reviewBusca';
+import { ReviewBusca } from './review/review-list/reviewBusca';
 import { ResponsePageable } from "./movies/responsePageable.model";
 
 @Injectable({
@@ -16,11 +16,11 @@ export class ReviewService {
     constructor(private http: HttpClient) { }
 
 
-    salvar(review: Review): Observable<Review> {
+    insert(review: Review): Observable<Review> {
         return this.http.post<Review>(this.apiURL, review);
     }
 
-    buscar(): Observable<Review[]> {
+    getReviews(): Observable<Review[]> {
 
         const httpParams = new HttpParams();
 

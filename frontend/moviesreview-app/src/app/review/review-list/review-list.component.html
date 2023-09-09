@@ -1,0 +1,40 @@
+<h1 class="mt-4">Review</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrum-bitem active"> Consulta</li>
+</ol>
+<div class="container">
+    <form #consultarForm="ngForm" (submit)="consultar()">
+
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                <button type="button" routerLink="/review/form" class="btn btn-warning ml-1">
+                    <i class="fa fa-plus"></i> Novo
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <br />
+    <div class="row">
+        <div class="alert alert-warning" role="alert" *ngIf="message">
+            {{ message }}
+        </div>
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Movie</th>
+                        <th>Text</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let r of list">
+                        <td>{{r.movieTitle}}</td>
+                        <td>{{r.text}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

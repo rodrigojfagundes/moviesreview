@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { Movie } from "./movies/movie";
 import { environment } from "src/environments/environment";
 import { JwtConfig, JwtHelperService } from '@auth0/angular-jwt'
-import { Usuario } from "./login/usuario";
+import { User } from "./login/user";
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +12,7 @@ import { Usuario } from "./login/usuario";
 export class AuthService {
     apiURL: string = environment.apiUrlBase + "/users"
 
-    tokenURL: string = environment.apiUrlBase + environment.obterTokenUrl;
+    tokenURL: string = environment.apiUrlBase + environment.getTokenUrl;
     clientID: string = environment.clientId;
     clientSecret: string = environment.clientSecret;
     jwtHelper: JwtHelperService = new JwtHelperService();
@@ -21,7 +21,7 @@ export class AuthService {
         private http: HttpClient
     ) { }
 
-    obterToken() {
+    getToken() {
         const tokenString = localStorage.getItem('access_token')
         if (tokenString) {
             const token = JSON.parse(tokenString).access_token
@@ -30,22 +30,22 @@ export class AuthService {
         return null;
     }
 
-    encerrarSessao() {
+    closeSession() {
         localStorage.removeItem('access_token')
     }
 
-    getUsuarioAutenticado() {
-        const token = this.obterToken();
+    getUserAutenticado() {
+        const token = this.getToken();
 
         if (token) {
-            const usuario = this.jwtHelper.decodeToken(token).user_name
-            return usuario
+            const user = this.jwtHelper.decodeToken(token).user_name
+            return user
         }
         return null;
     }
 
     isAuthenticated(): boolean {
-        const token = this.obterToken();
+        const token = this.getToken();
         if (token) {
             const expired = this.jwtHelper.isTokenExpired(token);
             return !expired;
@@ -53,11 +53,11 @@ export class AuthService {
         return false;
     }
 
-    salvar(usuario: Usuario): Observable<any> {
-        return this.http.post<any>(this.apiURL, usuario);
+    insert(user: User): Observable<any> {
+        return this.http.post<any>(this.apiURL, user);
     }
 
-    tentarLogar(username: string, password: string): Observable<any> {
+    tryLogin(username: string, password: string): Observable<any> {
 
         const params = new HttpParams()
             .set('username', username)

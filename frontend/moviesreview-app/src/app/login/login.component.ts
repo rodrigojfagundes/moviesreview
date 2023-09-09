@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { Usuario } from "./usuario";
+import { User } from "./user";
 import { AuthService } from "../auth.service";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Role } from "../role/role";
@@ -15,8 +15,8 @@ export class LoginComponent {
     name: string;
     username: string;
     password: string;
-    cadastrando: boolean;
-    mensagemSucesso: string;
+    signingUp: boolean;
+    successMessage: string;
     errors: String[];
     roles: Role[];
 
@@ -28,44 +28,44 @@ export class LoginComponent {
 
     onSubmit() {
         this.authService
-            .tentarLogar(this.username, this.password)
+            .tryLogin(this.username, this.password)
             .subscribe(response => {
                 const access_token = JSON.stringify(response);
                 localStorage.setItem('access_token', access_token)
                 this.router.navigate(['/home'])
             }, HttpErrorResponse => {
-                this.errors = ['Usuario e/ou senha incorreto(s).']
+                this.errors = ['User e/ou senha incorreto(s).']
             })
     }
 
-    preparaCadastrar(event) {
+    prepareRegister(event) {
         event.preventDefault();
-        this.cadastrando = true;
+        this.signingUp = true;
     }
 
-    cancelaCadastro() {
-        this.cadastrando = false;
+    cancelRegister() {
+        this.signingUp = false;
     }
 
-    cadastrar() {
-        const usuario: Usuario = new Usuario();
-        usuario.name = this.name;
-        usuario.username = this.username;
-        usuario.password = this.password;
-        usuario.roles = [{ id: 2 }];
+    register() {
+        const user: User = new User();
+        user.name = this.name;
+        user.username = this.username;
+        user.password = this.password;
+        user.roles = [{ id: 2 }];
 
         this.authService
-            .salvar(usuario)
+            .insert(user)
             .subscribe(response => {
-                this.mensagemSucesso = "Cadastro realizado com sucesso! Efetue o login.";
-                this.cadastrando = false;
+                this.successMessage = "Cadastro realizado com sucesso! Efetue o login.";
+                this.signingUp = false;
                 this.name = '';
                 this.username = '';
                 this.password = '';
                 this.roles = [];
                 this.errors = [];
             }, errorResponse => {
-                this.mensagemSucesso = null;
+                this.successMessage = null;
                 this.errors = errorResponse.error.errors;
             })
 

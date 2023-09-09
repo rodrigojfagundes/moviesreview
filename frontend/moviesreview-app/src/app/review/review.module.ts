@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReviewRoutingModule } from './review-routing.module';
 import { ReviewFormComponent } from './review-form/review-form.component';
-import { ReviewListaComponent } from './review-lista/review-lista.component';
+import { ReviewListComponent } from './review-list/review-list.component';
 import { RouterModule } from '@angular/router';
 
 
@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
     declarations: [
         ReviewFormComponent,
-        ReviewListaComponent
+        ReviewListComponent
     ],
     imports: [
         CommonModule,
@@ -20,7 +20,7 @@ import { RouterModule } from '@angular/router';
         RouterModule
     ], exports: [
         ReviewFormComponent,
-        ReviewListaComponent
+        ReviewListComponent
     ]
 })
 export class ReviewModule { }

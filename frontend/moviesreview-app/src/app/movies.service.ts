@@ -17,12 +17,12 @@ export class MoviesService {
 
     constructor(private http: HttpClient) { }
 
-    salvar(movie: Movie): Observable<Movie> {
+    insert(movie: Movie): Observable<Movie> {
         return this.http.post<Movie>('http://localhost:8080/movies', movie);
     }
 
 
-    atualizar(movie: Movie): Observable<any> {
+    update(movie: Movie): Observable<any> {
         return this.http.put<Movie>(`http://localhost:8080/movies/${movie.id}`, movie);
     }
 
@@ -38,7 +38,7 @@ export class MoviesService {
     }
 
 
-    deletar(movie: Movie): Observable<any> {
+    deletion(movie: Movie): Observable<any> {
         return this.http.delete<any>(`http://localhost:8080/movies/${movie.id}`);
     }
 

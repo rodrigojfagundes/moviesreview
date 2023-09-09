@@ -41,7 +41,7 @@ export class ReviewFormComponent implements OnInit {
 
     onSubmit() {
         this.reviewService
-            .salvar(this.review)
+            .insert(this.review)
             .subscribe(response => {
                 this.success = true;
                 this.errors = null;

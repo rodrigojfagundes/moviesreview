@@ -37,23 +37,23 @@ export class MoviesFormComponent implements OnInit {
         })
     }
 
-    voltarParaListagem() {
-        this.router.navigate(['/movies/lista'])
+    returnToList() {
+        this.router.navigate(['/movies/list'])
     }
 
     onSubmit() {
         if (this.id) {
             this.service
-                .atualizar(this.movie)
+                .update(this.movie)
                 .subscribe(response => {
                     this.success = true;
                     this.errors = null;
                 },
                     errorResponse => {
-                        this.errors = ['Erro ao atualizar o movie']
+                        this.errors = ['Erro ao update o movie']
                     })
         } else {
-            this.service.salvar(this.movie)
+            this.service.insert(this.movie)
                 .subscribe(response => {
                     this.success = true;
                     this.errors = null;

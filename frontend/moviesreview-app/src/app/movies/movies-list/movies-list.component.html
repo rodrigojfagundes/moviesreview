@@ -1,0 +1,77 @@
+<h1 class="mt-4">Movies</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Consulta Movies</li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert" *ngIf="successMessage">
+                {{ successMessage }}
+            </div>
+
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                {{ errorMessage }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-warning" (click)="newRegister()">
+                <i class="fa fa-plus"></i> Novo
+            </button>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed tabled-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>SubTitle</th>
+                        <th>Year</th>
+                        <th>Synopsis</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let movie of movies">
+                        <td>{{ movie.id }}</td>
+                        <td>{{ movie.title }}</td>
+                        <td>{{ movie.subTitle }}</td>
+                        <td>{{ movie.year }}</td>
+                        <td>{{ movie.synopsis }}</td>
+                        <td>
+                            <button class="btn btn-primary" routerLink="/movies/form/{{movie.id}}">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger" (click)="prepareDeletion(movie)" data-toggle="modal"
+                                data-target="#modalDelecao">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="modalDelecao" class="modal" fade role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Confirmacao</h4>
+                </div>
+                <div class="modal-body" *ngIf="movieSelected">
+                    Confirmar a delecao do Movie {{ movieSelected }}?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" (click)="deletionMovie()" data-dismiss="modal">Confirmar</button>
+                    <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

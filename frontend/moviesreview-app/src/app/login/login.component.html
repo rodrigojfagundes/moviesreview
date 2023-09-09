@@ -8,11 +8,11 @@
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header">
                                     <h3 class="text-center font-weight-light- y-4">
-                                        {{ cadastrando ? 'Cadastro de Novo Usuario' : 'Entrar' }}
+                                        {{ signingUp ? 'Cadastro de Novo User' : 'Entrar' }}
                                     </h3>
                                 </div>
                                 <div class="card-body">
-                                    <div class="aler alert-success" *ngIf="mensagemSucesso">
+                                    <div class="aler alert-success" *ngIf="successMessage">
                                     </div>
                                     <div class="alert alert-danger" *ngFor="let erro of errors">
                                         {{ erro }}
@@ -35,15 +35,15 @@
                                         </div>
                                         <div class="form-group align-items-center 
                         justify-content-between mt-4 mb-0">
-                                            <button type="submit" class="btn btn-primary" *ngIf="!cadastrando">
+                                            <button type="submit" class="btn btn-primary" *ngIf="!signingUp">
                                                 Enviar
                                             </button>
-                                            <button type="button" class="btn bt-success" (click)="cadastrar()"
-                                                *ngIf="cadastrando">
-                                                Cadastrar
+                                            <button type="button" class="btn bt-success" (click)="register()"
+                                                *ngIf="signingUp">
+                                                Register
                                             </button>
-                                            <button type="button" (click)="cancelaCadastro()"
-                                                class="btn btn-danger ml-1" *ngIf="cadastrando">
+                                            <button type="button" (click)="cancelRegister()"
+                                                class="btn btn-danger ml-1" *ngIf="signingUp">
                                                 Cancelar
                                             </button>
                                         </div>
@@ -51,8 +51,8 @@
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="small">
-                                        <a href="#" (click)="preparaCadastrar($event)">
-                                            Nao possui Usuario? Cadastre-se
+                                        <a href="#" (click)="prepareRegister($event)">
+                                            Nao possui User? Cadastre-se
                                         </a>
                                     </div>
                                 </div>

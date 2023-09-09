@@ -8,7 +8,7 @@ export const environment = {
 
     clientId: 'moviesreview',
     clientSecret: 'moviesreview123',
-    obterTokenUrl: '/oauth/token'
+    getTokenUrl: '/oauth/token'
 };
 
 /*
