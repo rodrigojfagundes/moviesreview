@@ -26,7 +26,7 @@ export class ReviewService {
 
         const url = this.apiURL;
         //    console.log(url);
-        return this.http.get<Review[]>('http://localhost:8080/reviews');
+        return this.http.get<Review[]>(this.apiURL);
     }
 
 }

@@ -3,11 +3,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Movie } from './movies/movie';
 import { Observable } from 'rxjs';
 import { ResponsePageable } from '../app/movies/responsePageable.model';
+import { environment } from '../environments/environment'
 
 @Injectable({
     providedIn: 'root'
 })
 export class MoviesService {
+
+apiURL: string = environment.apiUrlBase + '/movies';
+
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -18,28 +22,28 @@ export class MoviesService {
     constructor(private http: HttpClient) { }
 
     insert(movie: Movie): Observable<Movie> {
-        return this.http.post<Movie>('http://localhost:8080/movies', movie);
+        return this.http.post<Movie>(`${this.apiURL}`, movie);
     }
 
 
     update(movie: Movie): Observable<any> {
-        return this.http.put<Movie>(`http://localhost:8080/movies/${movie.id}`, movie);
+        return this.http.put<Movie>(`${this.apiURL}/${movie.id}`, movie);
     }
 
 
     getMovies(): Observable<ResponsePageable> {
-        return this.http.get<ResponsePageable>('http://localhost:8080/movies');
+        return this.http.get<ResponsePageable>(this.apiURL);
     }
 
 
 
     getMovieById(id: number): Observable<any> {
-        return this.http.get<Movie>(`http://localhost:8080/movies/${id}`);
+        return this.http.get<Movie>(`${this.apiURL}/${id}`);
     }
 
 
     deletion(movie: Movie): Observable<any> {
-        return this.http.delete<any>(`http://localhost:8080/movies/${movie.id}`);
+        return this.http.delete<any>(`${this.apiURL}/${movie.id}`);
     }
 
 
